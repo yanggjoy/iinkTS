@@ -42,6 +42,15 @@ export class SVGRenderer {
     this.layer.appendChild(this.createSVGTools())
     this.parent.style.setProperty("overflow", "auto")
     this.parent.appendChild(this.layer)
+
+    this.layer.addEventListener("touchstart", (e) => {
+      e.preventDefault()
+    }, { passive: false })
+    
+    this.layer.addEventListener("touchend", (e) => {
+      e.preventDefault()
+    }, { passive: false })
+   
   }
 
   protected createDefs(): SVGDefsElement {
